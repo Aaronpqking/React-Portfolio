@@ -10,7 +10,7 @@ const element = <FontAwesomeIcon icon={faCoffee} />
 export default function Footer() {
   return (
     <div>
-<jumbotron>
+
 
 <div className="jumbotron bg-primary">
   <div className="position-relative"></div>
@@ -32,7 +32,7 @@ export default function Footer() {
 </div>
 
 
-</jumbotron>
+
     </div>
   )
 }
