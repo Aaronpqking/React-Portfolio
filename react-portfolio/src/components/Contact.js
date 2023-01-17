@@ -49,7 +49,7 @@ function Contact() {
 
     <Parallax
     blur={{ min: -15, max: 15 }}
-    bgImage={require('../images/contact3.jpg')}
+    bgImage={require('../images/contact3.JPG')}
     bgImageAlt="the dog"
     strength={-200}
   >

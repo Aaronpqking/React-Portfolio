@@ -8,18 +8,10 @@ function Home() {
     
     <Parallax
         blur={{ min: -15, max: 15 }}
-        bgImage={require('../images/suhka.jpg')}
+        bgImage={require('../images/suhka.JPG')}
         bgImageAlt="the dog"
         strength={-200}
     >
-      {/* <jumbotron>
-      <section class="jumbotron bg-primary">
-    <div class="position-relative"></div>
-    <h1 class="display-3 me-3">AARON KING</h1>
-    <p class="lead center margin-right">A look into my work as an apsiring human</p>
-    <p id="date" class="lead date"></p>
-      </section>
-      </jumbotron> */}
 
 
       <div>
@@ -30,7 +22,7 @@ function Home() {
               <img src="sixword.png" className="card-img-top" alt="..."></img>
                     <h5 className="card-title">Six in the city</h5>
                     <p className="card-text">A short (bio) talk I did in collaboration with Larry Smith and the team at 6 word memiors.</p>
-                    <a href="https://vimeo.com/181224582" classNameName="btn btn-primary">Watch</a>
+                    <a href="https://vimeo.com/181224582" className="btn btn-primary">Watch</a>
             </div>           
           </div>
       <div className="col">

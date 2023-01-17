@@ -2,6 +2,8 @@ import React from 'react'
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import realEstate from '../images/realEstate.png';
+import weather from '../images/weather.png';
 
 export default function Project() {
   return (
@@ -13,7 +15,7 @@ export default function Project() {
 <CardGroup style={{padding:30}}>
         <Card style={{ margin: 20}}>
           <a href="https://github.com/jmizis/Home-Page-Real-Estate" target="blank">
-        <Card.Img variant="top" src="realEstate.png" alt="a link to a real Estate app using agile development" /></a>
+            <Card.Img variant="top" src={realEstate} alt="a link to a real Estate app using agile development" /></a>
         <Card.Body>
           <Card.Title>Real Estate Listings App</Card.Title>
           <Card.Text>
@@ -25,7 +27,7 @@ export default function Project() {
       <Card style={{margin: 20}}>
           
           <a href="https://aaronpqking.github.io/Weatherdashboard/" target="blank">
-        <Card.Img variant="top" src="weather.png" /></a>
+        <Card.Img variant="top" src={weather} /></a>
         <Card.Body>
           <Card.Title>Weather Dashboard</Card.Title>
           <Card.Text>
@@ -34,9 +36,10 @@ export default function Project() {
         </Card.Body>
         </Card>
         
-      <Card style={{margin:20}}>
+      <Card style={{margin:20}}>          
+          <a href="https://aaronpqking.github.io/Javascript-Quiz-Game" target="blank">
           <Card.Img variant="top" src="javascriptQuiz.png" />
-          <a href="https://aaronpqking.github.io/Javascript-Quiz-Game" target="blank"></a>
+          </a>
         <Card.Body>
           <Card.Title>JavaScript Quiz</Card.Title>
           <Card.Text>
