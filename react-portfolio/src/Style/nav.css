@@ -1,0 +1,46 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  height: 150px;
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-link {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  margin-left: 1rem;
+}
+
+.nav-link:hover {
+  color: #ccc;
+
+}
+
+  /* Add a media query to adjust the layout for smaller screens */
+   /* @media screen and (max-width: 768px) {
+    .nav {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .nav-items {
+      flex-direction: column;
+    }
+    .nav-item {
+      margin: 10px 0;
+    }
+  }
+    */
+

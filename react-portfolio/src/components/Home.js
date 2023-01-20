@@ -1,18 +1,33 @@
 import React from 'react';
+import { Jumbotron } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Parallax } from 'react-parallax'
+import { useState } from 'react';
+import moment from 'moment';
 
 
-function Home() {
-  return (
+
+
+
+  function Home() {
+    const [date, setDate] = useState(new Date());
+    const formattedDate = moment(date).format('MMMM Do YYYY, h:mm a');
     
-    <Parallax
+    return (
+    <div className='bg-primary'>  
+  <section className="jumbotron bg-primary">
+    <div class="position-relative"></div>
+    <h1 class="display-3 me-3">AARON KING</h1>
+    <p class="lead center margin-right">A look into my work as an apsiring human</p>
+    <p>{formattedDate}</p>
+  </section>
+      
+  <Parallax
         blur={{ min: -15, max: 15 }}
         bgImage={require('../images/suhka.JPG')}
         bgImageAlt="the dog"
         strength={-200}
     >
-
 
       <div>
           <div className="vimeobox">
@@ -29,19 +44,21 @@ function Home() {
             <br>
               </br>
         <br>
-        </br>
-        <p className="biotext">
-Like meditation, yoga found me at a time when I needed it most. I thought that I could find happiness  through my career, but it wasn't enough. My training  taught me to honor my inner voice. I teach all 8 limbs of yoga with a strong  focus on awareness and breath-work. Through intelligent  sequencing, I guide a practice that allows you to truly connect with and  strengthen your mind and body. In 2015, I founded the Dharma House. I enjoy using a fluid  combination of modalities. My passions include spirituality, emotional  intelligence, health and wellness, philosophy, and nutrition. My  mission is to master the power of the mind and body, and teach others to  do the same. Here I believe we find not only power, but joy.
-        </p>
+                </br>
+                <br>
+                
+                </br>
       </div>
     </div>
   </div>
       </div>
-      
-      
+      <p className="biotext">
+Like meditation, yoga found me at a time when I needed it most. I thought that I could find happiness  through my career, but it wasn't enough. My training  taught me to honor my inner voice. I teach all 8 limbs of yoga with a strong  focus on awareness and breath-work. Through intelligent  sequencing, I guide a practice that allows you to truly connect with and  strengthen your mind and body. In 2015, I founded the Dharma House. I enjoy using a fluid  combination of modalities. My passions include spirituality, emotional  intelligence, health and wellness, philosophy, and nutrition. My  mission is to master the power of the mind and body, and teach others to  do the same. Here I believe we find not only power, but joy.
+        </p>
+
         <div style={{ height: '450px' }} />
     </Parallax>
-
+</div>
   );
 }
 

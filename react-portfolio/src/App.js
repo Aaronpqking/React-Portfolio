@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Resume from './components/Resume';
 import { Routes, Route, BrowserRouter } from "react-router-dom"
 import initFontAwesome from "./initFontAwesome";
+import 'bootstrap/dist/css/bootstrap.min.css';
 initFontAwesome();
 
 function App() {

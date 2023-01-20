@@ -8,7 +8,16 @@ import weather from '../images/weather.png';
 export default function Project() {
   return (
     <div className='body'>
-  
+      <div>
+        
+      </div>
+      <section className="jumbotron bg-primary">
+    <div class="position-relative"></div>
+    <h1 class="display-3 me-3">AARON KING</h1>
+    <p class="lead center margin-right">A look into my work as an apsiring developer</p>
+    {/* <p>{formattedDate}</p> */}
+  </section>
+
     
     
   
