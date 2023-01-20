@@ -17,7 +17,7 @@ function Navigation() {
         <Navbar.Brand href="#home"></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
+        <Nav className="navbar-nav d-flex" style={{ display: 'flex', justifyContent: 'space-around'}}>
             <Link to="/"> <Nav.Link>Home</Nav.Link></Link>
             <Link to="/Project"><Nav.Link>Portfolio</Nav.Link></Link>
             <NavDropdown title="Links" id="basic-nav-dropdown">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Jumbotron } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Parallax } from 'react-parallax'
 
@@ -6,20 +7,20 @@ import { Parallax } from 'react-parallax'
 function Home() {
   return (
     
-    <Parallax
-        blur={{ min: -15, max: 15 }}
-        bgImage={require('../images/suhka.jpg')}
-        bgImageAlt="the dog"
-        strength={-200}
-    >
-      {/* <jumbotron>
+    // <Parallax
+    //     blur={{ min: -15, max: 15 }}
+    //     bgImage={require('../images/suhka.jpg')}
+    //     bgImageAlt="the dog"
+    //     strength={-200}
+    // >
+      <jumbotron>
       <section class="jumbotron bg-primary">
     <div class="position-relative"></div>
     <h1 class="display-3 me-3">AARON KING</h1>
     <p class="lead center margin-right">A look into my work as an apsiring human</p>
     <p id="date" class="lead date"></p>
       </section>
-      </jumbotron> */}
+      </jumbotron> 
 
 
       <div>
@@ -47,8 +48,8 @@ Like meditation, yoga found me at a time when I needed it most. I thought that I
       </div>
       
       
-        <div style={{ height: '450px' }} />
-    </Parallax>
+        // <div style={{ height: '450px' }} />
+    // </Parallax>
 
   );
 }

@@ -15,7 +15,7 @@ function Header() {
         <Navbar.Brand href="#home">Aaron King</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav>
+        <Nav className="navbar-nav d-flex" style={{ display: 'flex', justifyContent: 'space-around'}}>
             <Link to="/" style={{margin:10}}> Home </Link>
             <Link to="/Project" style={{margin:10}}>Portfolio</Link>
             <NavDropdown title="Info" id="basic-nav-dropdown" style={{margin:2}}>
