@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import { Parallax } from 'react-parallax'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import "../Style/contact.css";
 
 
 
@@ -47,12 +48,7 @@ function Contact() {
 
   return (
 
-    <Parallax
-    blur={{ min: -15, max: 15 }}
-    bgImage={require('../images/contact3.jpg')}
-    bgImageAlt="the dog"
-    strength={-200}
-  >
+
     <section>
       <form id="contact-form" onSubmit={handleSubmit} className="formStyle">
         <div className="inputBox">
@@ -90,8 +86,6 @@ function Contact() {
         <button type="submit" className="submit">Submit</button>
       </form>
     </section>
-    <div style={{ height: '350px', width: '130px' }} />
-    </Parallax>
     );
   }
 

@@ -1,38 +1,54 @@
-import React from 'react'
-// import ReactDOM from 'react-dom/client';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import "../Style/footer.css";
 
-const element = <FontAwesomeIcon icon={faCoffee} />
-
-// ReactDOM.render(element, document.body)
-
-export default function Footer() {
+const Footer = () => {
   return (
-    <div>
-
-
-<div className="jumbotron bg-primary">
-  <div className="position-relative"></div>
-  {/* <p className="display-3 m-center"></p> */}
-          
-{/* 
-<FontAwesomeIcon icon={['fab', 'twitter']} /> */}
-
-          <button href="https://linkedin/in/aaronpqking">
-<FontAwesomeIcon icon={['fab', 'linkedin']} />
-          </button>
-          <button href="https://github.com/Aaronpqking"g>
-          <FontAwesomeIcon  icon={['fab', 'github']} />          
-          </button>    
-
-
-  <p className="lead m-center"></p>
-  <p id="date" className="lead date"></p>
-</div>
-
-
-
-    </div>
+    <>
+      <Container fluid className="text-light page-footer d-flex pt-3 bg-warning">
+        <Container>
+          <Row className="pb-4 justify-content-between">
+            <Col xs={12} md={4}>
+              <ul className="no-bullets d-inline-block">
+                <li>
+                  <a className="footer-link" href="mailto:aaronpqking@gmail.com">
+                    <span className="pr-3">
+                      <FaEnvelope />
+                    </span>
+                    aaronpqking@gmail.com
+                  </a>
+                </li>
+                </ul>
+            </Col>
+            <Col>
+              <ul>
+                <li>
+                  <a className="footer-link" href="https://github.com/aaronpqking">
+                    <span className="pr-3">
+                      <FaGithub />
+                    </span>
+                    Aaronpqking
+                  </a>
+                </li>
+                </ul>
+            </Col>
+            <Col>
+                <ul>
+                <li>
+                  <a className="footer-link" href="https://www.linkedin.com/in/aaronpqking">
+                    <span className="pr-3">
+                      <FaLinkedin />
+                    </span>
+                    Aaronpqking
+                  </a>
+                </li>
+              </ul>
+            </Col>
+          </Row>
+        </Container>
+      </Container>
+    </>
   )
-}
+};
+export default Footer;
