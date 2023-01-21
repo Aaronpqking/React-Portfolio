@@ -1,5 +1,4 @@
 import React from 'react';
-import { Jumbotron } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Parallax } from 'react-parallax'
 import { useState } from 'react';
@@ -25,7 +24,7 @@ import moment from 'moment';
   <Parallax
         blur={{ min: -15, max: 15 }}
         bgImage={require('../images/suhka.JPG')}
-        bgImageAlt="the dog"
+        bgImageAlt="Aaron King in Suhkasana"
         strength={-200}
     >
 
