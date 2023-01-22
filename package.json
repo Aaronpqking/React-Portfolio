@@ -52,13 +52,12 @@
   },
   "jest": {
     "haste": {
-        "providesModuleNodeModules": [
-            "react-native",
-            "react-navigation",
-            "fsevents",
-            "fsevents@1.2.13"
-        ]
+      "providesModuleNodeModules": [
+        "react-native",
+        "react-navigation",
+        "fsevents",
+        "fsevents@1.2.13"
+      ]
     }
-}
-
+  }
 }
