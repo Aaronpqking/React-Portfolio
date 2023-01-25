@@ -9,7 +9,7 @@ import moment from 'moment';
 
 
   function Home() {
-    const [date, setDate] = useState(new Date());
+    const [date] = useState(new Date());
     const formattedDate = moment(date).format('MMMM Do YYYY, h:mm a');
     
     return (

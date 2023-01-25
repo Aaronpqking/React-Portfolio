@@ -1,5 +1,4 @@
 import React,{useState} from 'react';
-import { Parallax } from 'react-parallax'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "../Style/contact.css";
 
