@@ -23,7 +23,7 @@ import moment from 'moment';
       
   <Parallax
         blur={{ min: -15, max: 15 }}
-        bgImage={require('../images/suhka.JPG')}
+        bgImage={require('../images/suhka.jpg')}
         bgImageAlt="Aaron King in Suhkasana"
         strength={-200}
     >
