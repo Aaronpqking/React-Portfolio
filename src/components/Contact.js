@@ -49,9 +49,11 @@ function Contact() {
 
 
     <section>
+      <row>
+        {/* <col> */}
       <form id="contact-form" onSubmit={handleSubmit} className="formStyle">
         <div className="inputBox">
-          <label htmlFor="name" className='labelSpace'>Name:</label>
+          <label htmlFor="name" className='labelSpace'> Name:</label>
           <input id="input"
             type="text"
             name="name"
@@ -60,7 +62,7 @@ function Contact() {
           />
         </div>
         <div className="inputBox">
-          <label htmlFor="email" className='labelSpace'>Email address:</label>
+          <label htmlFor="email" className='labelSpace'> Email:</label>
           <input  id="input"
             type="email"
             name="email"
@@ -69,7 +71,7 @@ function Contact() {
           />
         </div>
         <div className="inputBox">
-          <label htmlFor="message" className='labelSpace'>Message:</label>
+          <label htmlFor="message" className='labelSpace'>  Message:</label>
           <textarea
             name="message"
             rows="5"
@@ -83,7 +85,9 @@ function Contact() {
           </div>
         )}
         <button type="submit" className="submit">Submit</button>
-      </form>
+          </form>
+          {/* </col> */}
+        </row>
     </section>
     );
   }

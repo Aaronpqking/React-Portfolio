@@ -18,8 +18,8 @@ function Header() {
         <Link to="/" className='mx-3'> Home </Link>
         <Link to="/Project" className='mx-3'>Portfolio</Link>
         <Link to="/Resume" className='mx-3'>Resume</Link>
-        <Link href="https://github.com/aaronpqking?tab=repositories" target="blank" className='mx-3'>My Repository</Link>
-        <Link href="/Contact" className='mx-3'>Contact Me</Link>
+        <a href="https://github.com/aaronpqking" target="blank" className='mx-3'>My Repository</a>
+        <Link to="/Contact" className='mx-3'>Contact Me</Link>
       </Nav>
     </Navbar.Collapse>
   </Container>
