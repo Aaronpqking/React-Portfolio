@@ -47,7 +47,7 @@ export default function Project() {
         
       <Card style={{margin:20}}>          
           <a href="https://aaronpqking.github.io/Javascript-Quiz-Game" target="blank">
-          <Card.Img variant="top" src="javascriptQuiz.png" />
+          <Card.Img variant="top" src="JavascriptQuiz.png" />
           </a>
         <Card.Body>
           <Card.Title>JavaScript Quiz</Card.Title>
