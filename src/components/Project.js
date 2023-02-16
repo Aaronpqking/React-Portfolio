@@ -64,7 +64,7 @@ export default function Project() {
       </br>
       <CardGroup style={{ padding: 30 }}>
         <Card style={{margin:20}}>
-          <a href="https://akingsview.github.io/workday-calendar/" target="blank">
+          <a href="https://aaronpqking.github.io/workday-calendar/" target="blank">
         <Card.Img variant="top" src="workdayScheduler.png" /></a>
         <Card.Body>
           <Card.Title>Workday Scheduler</Card.Title>
