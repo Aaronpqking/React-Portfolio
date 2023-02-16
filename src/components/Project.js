@@ -45,6 +45,7 @@ export default function Project() {
         </Card.Body>
         </Card>
         
+        {/* ensure all image files have lowercase letters */}
       <Card style={{margin:20}}>          
           <a href="https://aaronpqking.github.io/Javascript-Quiz-Game" target="blank">
           <Card.Img variant="top" src="javascriptQuiz.png" />
