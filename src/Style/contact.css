@@ -1,10 +1,5 @@
-form {
-    display: flex;
-    align-items: center;
-    padding: 1em;
-    background-color: black;
-  }
-  
+
+/*    
   input[type="text"] {
     border: none;
     border-bottom: 1px solid gray;
@@ -13,22 +8,14 @@ form {
     color: black;
     outline: none;
     transition: border-bottom 0.3s;
-  }
-  
+  } */
+   
   input[type="text"]:focus {
     border-bottom: 1px solid black;
   }
   
-  button[type="submit"] {
-    border: none;
-    background: none;
-    padding: 8px;
-    font-size: 1rem;
-    color: black;
-    cursor: pointer;
-  }
   
-  div {
+  /* div {
     margin: 8px 0;
   }
   
@@ -36,7 +23,4 @@ form {
     color: black;
     text-decoration: none;
     font-size: 1rem;
-  }
-/* body{
-  background-color: black;
-} */
+  } */

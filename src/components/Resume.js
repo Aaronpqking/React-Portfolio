@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import '../Style/resume.css';
+import Contact from './Contact';
 
 function Resume() {
     return (
@@ -8,17 +9,24 @@ function Resume() {
       
    
       <Container>
-        {/* <section className="my-5">
+        <section className="my-5">
           <div className="my-2">
-            <p>Download my <a href="\Users\aaron\Desktop\Resume.pdf" download>resume</a></p>
+            <p><a>
+              <Button href="\Users\aaron\Desktop\Resume.pdf" download variant="primary">
+                Resume
+              </Button>
+            </a>      <Contact />
+</p>
           </div>
-        </section> */}
+        </section>
 
             <Row>
               <Col>
             <h1>Aaron King</h1>
             <h2 className='title'>Software & Solutions Engineer</h2>
-              </Col>
+            <Col></Col>
+          </Col>
+          
         </Row>
         <br></br>
             <Row>
