@@ -9,7 +9,7 @@ function Resume() {
       
    
       <Container>
-        <section className="my-5">
+        <section className="my-5">Oh
           <div className="my-2">
             <p><a>
               <Button href="\Users\aaron\Desktop\Resume.pdf" download variant="primary">
@@ -46,7 +46,7 @@ July 2022- January 2023, Columbus, Oh (Remote)
 skills.</p>
             <p>
 Columbus State Community College / Sports & Exercise Science
-September 2013 - May 2015, Columbus, OH
+September 2013 - May 2015, Columbus, Oh
 Associates in Sports and Exercise Science (incomplete)</p>
             <p>
 Six Seconds / Brain Profiles - EQ Practitioner Certification
@@ -54,7 +54,7 @@ Six Seconds / Brain Profiles - EQ Practitioner Certification
 Advanced Emotional Intelligence assessment training</p>
             <p>
 Yoga on High / Meditation Teacher Training
-2014 - 2015, Columbus, OH
+2014 - 2015, Columbus, Oh
 Meditation Teacher training in breathwork, mindfulness and philosophy</p>
             <p>
 Balanced Yoga / Yoga Teacher Training
