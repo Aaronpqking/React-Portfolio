@@ -33,6 +33,7 @@
   .CardGroup {
     /* Add some margin to the top and bottom of the CardGroup to add some space */
     margin: 25px 0;
+  
   }
   
   .BookCard {
@@ -47,6 +48,7 @@
   .BookCard img {
     width: 30%;
     height: auto;
+    border-style: double;
   }
   
   
