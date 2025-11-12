@@ -27,6 +27,7 @@ function Header() {
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/">Home</Nav.Link>
               <Nav.Link as={Link} to="/case-studies">Case Studies</Nav.Link>
+              <Nav.Link as={Link} to="/ai-chat">AI Tools</Nav.Link>
               <Nav.Link as={Link} to="/Resume">About</Nav.Link>
             </Nav>
             <div className="d-flex gap-2">

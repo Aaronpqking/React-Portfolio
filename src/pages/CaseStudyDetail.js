@@ -32,7 +32,6 @@ export default function CaseStudyDetail() {
 
   const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
   const shareTitle = s ? `${s.title} - Case Study` : '';
-  const shareText = s ? s.problem : '';
 
   const handleShare = (platform) => {
     let url = '';

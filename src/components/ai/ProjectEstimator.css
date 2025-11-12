@@ -1,0 +1,43 @@
+.project-estimator {
+  max-width: 1000px;
+}
+
+.feature-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.estimate-result {
+  border: 2px solid #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.estimate-details {
+  background: #f8f9fa;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.estimate-item {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.estimate-item:last-child {
+  border-bottom: none;
+}
+
+.estimate-item h5 {
+  letter-spacing: 1px;
+  font-size: 0.75rem;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  .feature-checkboxes {
+    grid-template-columns: 1fr;
+  }
+}
+

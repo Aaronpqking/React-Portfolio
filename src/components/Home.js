@@ -206,6 +206,78 @@ function Home() {
         </Container>
       </section>
 
+      {/* AI Demos Section */}
+      <section className="py-5">
+        <Container>
+          <Row className="mb-5">
+            <Col lg={8} className="mx-auto text-center">
+              <h2 className="display-5 fw-bold mb-3">Try Our AI Tools</h2>
+              <p className="lead text-muted">
+                Experience our AI capabilities firsthand. Get instant estimates, recommendations, and answers.
+              </p>
+            </Col>
+          </Row>
+          <Row className="g-4">
+            <Col md={6} lg={4}>
+              <Card className="h-100 border-0 shadow-sm ai-demo-card">
+                <Card.Body className="p-4 text-center">
+                  <div className="ai-icon mb-3">💬</div>
+                  <Card.Title className="h5 mb-3">AI Chat Assistant</Card.Title>
+                  <Card.Text className="text-muted small mb-3">
+                    Ask questions about our services, pricing, timelines, and get instant answers powered by AI.
+                  </Card.Text>
+                  <Button 
+                    as={Link} 
+                    to="/ai-chat" 
+                    variant="primary" 
+                    className="w-100"
+                  >
+                    Try Chat Assistant
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={6} lg={4}>
+              <Card className="h-100 border-0 shadow-sm ai-demo-card">
+                <Card.Body className="p-4 text-center">
+                  <div className="ai-icon mb-3">📊</div>
+                  <Card.Title className="h5 mb-3">Project Estimator</Card.Title>
+                  <Card.Text className="text-muted small mb-3">
+                    Get instant AI-powered estimates for your project including cost, timeline, and approach.
+                  </Card.Text>
+                  <Button 
+                    as={Link} 
+                    to="/ai-estimator" 
+                    variant="primary" 
+                    className="w-100"
+                  >
+                    Get Estimate
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={6} lg={4}>
+              <Card className="h-100 border-0 shadow-sm ai-demo-card">
+                <Card.Body className="p-4 text-center">
+                  <div className="ai-icon mb-3">🚀</div>
+                  <Card.Title className="h5 mb-3">More AI Tools</Card.Title>
+                  <Card.Text className="text-muted small mb-3">
+                    Tech stack recommendations, workflow analysis, and more AI-powered tools coming soon.
+                  </Card.Text>
+                  <Button 
+                    variant="outline-primary" 
+                    className="w-100"
+                    disabled
+                  >
+                    Coming Soon
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
       {/* CTA Section */}
       <section className="py-5 bg-primary text-white">
         <Container>
