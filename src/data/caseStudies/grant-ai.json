@@ -1,0 +1,36 @@
+{
+  "slug": "grant-ai-agent",
+  "title": "Grant AI: Discovery, Fit Scoring & Narrative Drafting",
+  "client": "Internal / Partners",
+  "industry": "Nonprofit / Education / Startups",
+  "timeframe": "2025",
+  "role": "Architect / Engineer",
+  "problem": "Grant discovery, eligibility parsing, and narrative drafting are slow and inconsistent; submissions miss rubric-aligned details.",
+  "approach": [
+    "Crawler/API ingestion of grant sources → normalized index",
+    "Eligibility + fit scoring (topic, geography, budget, timeline)",
+    "Section-aware narrative drafting aligned to reviewer rubric",
+    "Submission checklist + artifact pack + status tracker"
+  ],
+  "solution": "End-to-end workflow to surface high-fit grants, draft rubric-aligned narratives, and track submission readiness.",
+  "stack": ["React (Next-ready)", "Supabase", "Embeddings (HF/OpenAI)", "ChromaDB", "LangGraph", "Vercel"],
+  "outcomes": [
+    { "label": "Time to First Draft", "value": "REPLACE_%", "tooltip": "Reduction vs manual baseline" },
+    { "label": "Qualified Opportunities/Month", "value": "REPLACE_×", "tooltip": "Increase in high-fit grants surfaced" },
+    { "label": "Submission Errors", "value": "REPLACE_%", "tooltip": "Reduction in missing docs/compliance issues" }
+  ],
+  "highlights": ["Rubric-aligned drafting", "Eligibility scoring", "Submission checklist & status"],
+  "media": [
+    { "type": "video", "src": "https://www.loom.com/share/REPLACE_GRANT_LOOM", "alt": "Grant AI workflow demo" }
+  ],
+  "links": [
+    { "label": "Live Demo", "href": "https://v0-grant-ai.vercel.app/" },
+    { "label": "Architecture Notes", "href": "https://REPLACE_DOC_URL" }
+  ],
+  "tags": ["grants", "agent", "workflows"],
+  "cardImage": "/media/grant-ai-homepage.png",
+  "seo": {
+    "description": "Grant AI agent: discover, score, and draft grants to the rubric with a submission-ready checklist."
+  }
+}
+

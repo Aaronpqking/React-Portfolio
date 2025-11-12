@@ -1,31 +1,57 @@
-import React from 'react'
+import { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import {Link} from "react-router-dom"
-function Header() {
+import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
+import LeadCaptureModal from './LeadCaptureModal';
 
+function Header() {
+  const [showModal, setShowModal] = useState(false);
 
   return (
-    
-<div bg="warning">
-<Navbar bg="warning" expand="lg" className='justify-content-center'>
-  <Container>
-    <Navbar.Brand href="#home"></Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="navbar-nav d-flex justify-content-center">
-        <Link to="/" className='mx-3'> Home </Link>
-        <Link to="/Project" className='mx-3'>Portfolio</Link>
-        <Link to="/Resume" className='mx-3'>Resume</Link>
-              <a href="https://github.com/aaronpqking" target="blank" className='mx-3'>My Repository</a>
-              <a href="https://dharmahousecolumbus.com" target="blank" className='mx-3'>The Dharma House</a>
-      </Nav>
-    </Navbar.Collapse>
-  </Container>
-</Navbar>
-</div>
-  )
-};
+    <>
+      <LeadCaptureModal 
+        show={showModal} 
+        onHide={() => setShowModal(false)} 
+        triggerSource="header-cta"
+      />
+      <Navbar expand="lg" className="consultancy-navbar" fixed="top">
+        <Container>
+          <Navbar.Brand as={Link} to="/" className="fw-bold fs-4">
+            Aaron King
+            <span className="text-primary"> Consulting</span>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link as={Link} to="/">Home</Nav.Link>
+              <Nav.Link as={Link} to="/case-studies">Case Studies</Nav.Link>
+              <Nav.Link as={Link} to="/Resume">About</Nav.Link>
+            </Nav>
+            <div className="d-flex gap-2">
+              <Button 
+                variant="outline-primary" 
+                size="sm"
+                onClick={() => setShowModal(true)}
+                className="d-none d-md-inline-block"
+              >
+                Get Started
+              </Button>
+              <Button 
+                variant="primary" 
+                size="sm"
+                onClick={() => setShowModal(true)}
+              >
+                Contact
+              </Button>
+            </div>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <div style={{ height: '76px' }} /> {/* Spacer for fixed navbar */}
+    </>
+  );
+}
 
 export default Header;

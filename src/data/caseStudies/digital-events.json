@@ -1,0 +1,36 @@
+{
+  "slug": "digital-events-ops-agent",
+  "title": "Digital Events: Ops Agent & Logistics Dashboard",
+  "client": "Digital Events Inc.",
+  "industry": "Live Events / Logistics",
+  "timeframe": "2025",
+  "role": "CTO / Architect",
+  "problem": "Slack-first operations without a single source of truth; fragmented shipping/receiving; limited visibility for samples and equipment.",
+  "approach": [
+    "Hexagonal architecture on Supabase + Neo4j knowledge graph",
+    "Slack/Asana/Shippo/Cheqroom ingestion → chunking/metadata → embeddings → RAG insights",
+    "Daily Ops Brief, logistics map (people/equipment), event timeline, sample queue, SLA/contract tracking"
+  ],
+  "solution": "Unified dashboard and agent that converts unstructured chatter into structured ops signals with KPIs and actions.",
+  "stack": ["React", "Supabase", "Neo4j", "ChromaDB", "LangGraph", "Vercel", "n8n (optional)"],
+  "outcomes": [
+    { "label": "Receiving Time", "value": "REPLACE_%", "tooltip": "Median time from arrival to intake complete" },
+    { "label": "Data Capture", "value": "REPLACE_×", "tooltip": "Increase in structured operations events captured" },
+    { "label": "Ops Incidents", "value": "REPLACE_%", "tooltip": "Reduction in missed handoffs/late shipments" }
+  ],
+  "highlights": ["SLA/contract tracking", "Graph insights", "Agent-ready interfaces"],
+  "media": [
+    { "type": "image", "src": "/media/de-dashboard.png", "alt": "Digital Events operations dashboard" },
+    { "type": "video", "src": "https://www.loom.com/embed/fc2c187339f646829ec886aa353e0e44", "alt": "Ops dashboard walkthrough" }
+  ],
+  "links": [
+    { "label": "Live Demo", "href": "https://digital-events-dashboa-git-137495-aaron-kings-projects-765e1c70.vercel.app" },
+    { "label": "GitHub", "href": "https://REPLACE_REPO_URL" }
+  ],
+  "tags": ["logistics", "rag", "dashboard"],
+  "cardImage": "/media/de-dashboard.png",
+  "seo": {
+    "description": "Agent-powered logistics dashboard with graph insights, Daily Ops Brief, and unified shipping/receiving visibility."
+  }
+}
+

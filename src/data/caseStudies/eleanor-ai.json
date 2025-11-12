@@ -1,0 +1,35 @@
+{
+  "slug": "eleanor-ai-assistant",
+  "title": "Eleanor AI: Intelligent Productivity Assistant",
+  "client": "Internal / Partners",
+  "industry": "Productivity / AI / SaaS",
+  "timeframe": "2025",
+  "role": "Architect / Engineer",
+  "problem": "Managing emails, calendar, and files across Google Workspace is time-consuming and fragmented. Users need an intelligent assistant that understands context and can automate routine tasks.",
+  "approach": [
+    "Google OAuth 2.0 integration for unified authentication",
+    "AI-powered email management and smart responses",
+    "Calendar optimization and meeting scheduling",
+    "File organization and document insights"
+  ],
+  "solution": "An intelligent AI assistant that integrates with Google Workspace to automate productivity tasks, manage communications, and provide contextual insights.",
+  "stack": ["React", "Next.js", "Google Workspace API", "Vertex AI", "Supabase", "Vercel"],
+  "outcomes": [
+    { "label": "Time Saved", "value": "REPLACE_%", "tooltip": "Reduction in time spent on routine tasks" },
+    { "label": "Email Response Rate", "value": "REPLACE_×", "tooltip": "Increase in timely email responses" },
+    { "label": "Task Completion", "value": "REPLACE_%", "tooltip": "Improvement in task completion rate" }
+  ],
+  "highlights": ["Google Workspace integration", "AI-powered automation", "Context-aware assistance"],
+  "media": [
+    { "type": "image", "src": "/media/eleanor-homepage.png", "alt": "Eleanor AI assistant dashboard" }
+  ],
+  "links": [
+    { "label": "Live Demo", "href": "https://eleanor-ten.vercel.app/auth" }
+  ],
+  "tags": ["ai", "productivity", "google-workspace"],
+  "cardImage": "/media/eleanor-homepage.png",
+  "seo": {
+    "description": "Eleanor AI: Intelligent productivity assistant for Google Workspace with email management, calendar optimization, and automated task handling."
+  }
+}
+

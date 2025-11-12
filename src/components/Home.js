@@ -1,63 +1,233 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Parallax } from 'react-parallax'
 import { useState } from 'react';
-import moment from 'moment';
+import { Container, Row, Col, Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import LeadCaptureModal from './LeadCaptureModal';
 
+function Home() {
+  const [showModal, setShowModal] = useState(false);
+  const [modalSource, setModalSource] = useState('hero');
 
+  const handleOpenModal = (source) => {
+    setModalSource(source);
+    setShowModal(true);
+    console.log('lead_capture_open', source);
+  };
 
+  const services = [
+    {
+      icon: '🤖',
+      title: 'AI & Automation',
+      description: 'Intelligent systems that streamline operations, reduce costs, and enhance decision-making.',
+      features: ['RAG Systems', 'Agent Orchestration', 'Workflow Automation']
+    },
+    {
+      icon: '💻',
+      title: 'Custom Development',
+      description: 'Scalable web applications built with modern architectures and best practices.',
+      features: ['Full-Stack Solutions', 'Cloud-Native Apps', 'API Development']
+    },
+    {
+      icon: '🔗',
+      title: 'System Integration',
+      description: 'Seamlessly connect your existing tools and platforms for unified workflows.',
+      features: ['API Integration', 'Data Pipelines', 'Third-Party Connectors']
+    },
+    {
+      icon: '📊',
+      title: 'Technical Consulting',
+      description: 'Strategic guidance on architecture, technology selection, and digital transformation.',
+      features: ['Architecture Review', 'Tech Stack Selection', 'Team Mentoring']
+    }
+  ];
 
-
-  function Home() {
-    const [date] = useState(new Date());
-    const formattedDate = moment(date).format('MMMM Do YYYY, h:mm a');
-    
-    return (
-    <div className='bg-primary'>  
-  <section className="jumbotron bg-primary">
-    <div class="position-relative"></div>
-    <h1 class="display-3 me-3">AARON KING</h1>
-    <p class="lead center margin-right">A look into my work as an apsiring human</p>
-    <p>{formattedDate}</p>
-  </section>
+  return (
+    <>
+      <LeadCaptureModal 
+        show={showModal} 
+        onHide={() => setShowModal(false)} 
+        triggerSource={modalSource}
+      />
       
-  <Parallax
-        blur={{ min: -15, max: 15 }}
-        bgImage={require('../images/suhka.jpg')}
-        bgImageAlt="Aaron King in Suhkasana"
-        strength={-200}
-    >
+      {/* Hero Section */}
+      <section className="consultancy-hero">
+        <Container>
+          <Row className="align-items-center min-vh-75 py-5">
+            <Col lg={7}>
+              <div className="hero-content">
+                <h1 className="display-4 fw-bold mb-4">
+                  Transform Your Business with
+                  <span className="text-gradient"> AI-Powered Solutions</span>
+                </h1>
+                <p className="lead mb-4 text-muted">
+                  We help small to midsize businesses leverage cutting-edge technology to automate workflows, 
+                  integrate systems, and drive growth. From AI agents to custom platforms, we deliver solutions 
+                  that scale.
+                </p>
+                <div className="d-flex flex-wrap gap-3 mb-4">
+                  <Button 
+                    size="lg" 
+                    variant="primary"
+                    onClick={() => handleOpenModal('hero-cta')}
+                    className="px-4"
+                  >
+                    Get Started
+                  </Button>
+                  <Button 
+                    size="lg" 
+                    variant="outline-light"
+                    as={Link}
+                    to="/case-studies"
+                    className="px-4"
+                  >
+                    View Our Work
+                  </Button>
+                </div>
+                <div className="d-flex gap-4 text-muted small">
+                  <div>
+                    <strong className="text-white">24hr</strong> Response Time
+                  </div>
+                  <div>
+                    <strong className="text-white">Free</strong> Consultation
+                  </div>
+                  <div>
+                    <strong className="text-white">SMB</strong> Focused
+                  </div>
+                </div>
+              </div>
+            </Col>
+            <Col lg={5} className="text-center">
+              <div className="hero-visual">
+                <div className="gradient-orb"></div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
 
-      <div>
-          <div className="vimeobox">
-      <div className="row">
-          <div className="col-4 rounded">
-            <div className="card-body bg-light rounded">
-              <img src="sixword.png" className="card-img-top" alt="..."></img>
-                    <h5 className="card-title">Six in the city</h5>
-                    <p className="card-text">A short (bio) talk I did in collaboration with Larry Smith and the team at 6 word memiors.</p>
-                    <a href="https://vimeo.com/181224582" className="btn btn-primary">Watch</a>
-            </div>           
-          </div>
-      <div className="col">
-            <br>
-              </br>
-        <br>
-                </br>
-                <br>
-                
-                </br>
-      </div>
-    </div>
-  </div>
-      </div>
-      <p className="biotext">
-Like meditation, yoga found me at a time when I needed it most. I thought that I could find happiness  through my career, but it wasn't enough. My training  taught me to honor my inner voice. I teach all 8 limbs of yoga with a strong  focus on awareness and breath-work. Through intelligent  sequencing, I guide a practice that allows you to truly connect with and  strengthen your mind and body. In 2015, I founded the Dharma House. I enjoy using a fluid  combination of modalities. My passions include spirituality, emotional  intelligence, health and wellness, philosophy, and nutrition. My  mission is to master the power of the mind and body, and teach others to  do the same. Here I believe we find not only power, but joy.
-        </p>
+      {/* Services Section */}
+      <section className="py-5 bg-light">
+        <Container>
+          <Row className="mb-5">
+            <Col lg={8} className="mx-auto text-center">
+              <h2 className="display-5 fw-bold mb-3">What We Offer</h2>
+              <p className="lead text-muted">
+                Comprehensive technology solutions tailored to your business needs
+              </p>
+            </Col>
+          </Row>
+          <Row className="g-4">
+            {services.map((service, idx) => (
+              <Col md={6} lg={3} key={idx}>
+                <Card className="h-100 border-0 shadow-sm service-card">
+                  <Card.Body className="p-4">
+                    <div className="service-icon mb-3">{service.icon}</div>
+                    <Card.Title className="h5 mb-3">{service.title}</Card.Title>
+                    <Card.Text className="text-muted small mb-3">{service.description}</Card.Text>
+                    <ul className="list-unstyled small">
+                      {service.features.map((feature, i) => (
+                        <li key={i} className="mb-2">
+                          <span className="text-primary me-2">✓</span>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </section>
 
-        <div style={{ height: '450px' }} />
-    </Parallax>
-</div>
+      {/* Value Proposition */}
+      <section className="py-5">
+        <Container>
+          <Row className="align-items-center">
+            <Col lg={6}>
+              <h2 className="display-5 fw-bold mb-4">
+                Built for <span className="text-gradient">Small & Midsize Businesses</span>
+              </h2>
+              <p className="lead text-muted mb-4">
+                We understand that SMBs need solutions that deliver value quickly without breaking the budget. 
+                Our approach combines enterprise-grade technology with practical, cost-effective implementation.
+              </p>
+              <ul className="list-unstyled mb-4">
+                <li className="mb-3 d-flex align-items-start">
+                  <span className="text-primary me-3 fs-4">→</span>
+                  <div>
+                    <strong>Fast Time-to-Value</strong>
+                    <p className="text-muted small mb-0">Rapid deployment with iterative improvements</p>
+                  </div>
+                </li>
+                <li className="mb-3 d-flex align-items-start">
+                  <span className="text-primary me-3 fs-4">→</span>
+                  <div>
+                    <strong>Scalable Architecture</strong>
+                    <p className="text-muted small mb-0">Grow without expensive rewrites</p>
+                  </div>
+                </li>
+                <li className="mb-3 d-flex align-items-start">
+                  <span className="text-primary me-3 fs-4">→</span>
+                  <div>
+                    <strong>Transparent Pricing</strong>
+                    <p className="text-muted small mb-0">No hidden fees, clear project scopes</p>
+                  </div>
+                </li>
+              </ul>
+              <Button 
+                size="lg" 
+                variant="primary"
+                onClick={() => handleOpenModal('value-prop')}
+              >
+                Schedule a Consultation
+              </Button>
+            </Col>
+            <Col lg={6}>
+              <div className="stats-grid p-4">
+                <div className="stat-item text-center p-4">
+                  <div className="stat-number">50+</div>
+                  <div className="stat-label">Projects Delivered</div>
+                </div>
+                <div className="stat-item text-center p-4">
+                  <div className="stat-number">95%</div>
+                  <div className="stat-label">Client Satisfaction</div>
+                </div>
+                <div className="stat-item text-center p-4">
+                  <div className="stat-number">2-4</div>
+                  <div className="stat-label">Weeks Avg. Delivery</div>
+                </div>
+                <div className="stat-item text-center p-4">
+                  <div className="stat-number">24/7</div>
+                  <div className="stat-label">Support Available</div>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-5 bg-primary text-white">
+        <Container>
+          <Row>
+            <Col lg={8} className="mx-auto text-center">
+              <h2 className="display-5 fw-bold mb-3">Ready to Transform Your Business?</h2>
+              <p className="lead mb-4 opacity-75">
+                Let's discuss how we can help you automate workflows, integrate systems, and drive growth.
+              </p>
+              <Button 
+                size="lg" 
+                variant="light"
+                onClick={() => handleOpenModal('bottom-cta')}
+                className="px-5"
+              >
+                Get Started Today
+              </Button>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+    </>
   );
 }
 
