@@ -128,6 +128,41 @@ export const chatWithAI = async (messages, options = {}) => {
 };
 
 /**
+ * Chat with intake specialist role
+ */
+export const chatWithIntakeSpecialist = async (messages, intakeData = {}) => {
+  const systemPrompt = `You are an AI intake specialist for a technology consultancy that helps small to midsize businesses with AI automation, custom development, system integration, and technical consulting.
+
+Your role is to:
+1. Have a natural, friendly conversation with potential clients
+2. Gather key information naturally through conversation:
+   - Name and contact information (email, phone)
+   - Company name
+   - Their business challenges and pain points
+   - What solutions they're interested in (AI automation, custom development, integration, consulting)
+   - Budget range (if they're comfortable sharing)
+   - Timeline/urgency
+3. Ask follow-up questions to understand their needs better
+4. When you have enough information (name/email + company + some context about needs), offer to schedule a discovery call
+5. Be conversational and helpful - don't make it feel like a form
+
+Current information gathered:
+${JSON.stringify(intakeData, null, 2)}
+
+Keep responses concise (2-3 sentences typically), friendly, and professional. Ask one question at a time. When you have enough info, suggest scheduling a discovery call.`;
+
+  const messagesWithSystem = [
+    { role: 'system', content: systemPrompt },
+    ...messages.map(m => ({ role: m.role, content: m.content }))
+  ];
+
+  return await chatWithAI(messagesWithSystem, {
+    temperature: 0.7,
+    maxTokens: 300
+  });
+};
+
+/**
  * Get structured output from AI (for project estimates, tech recommendations, etc.)
  */
 export const getStructuredAIResponse = async (prompt, schema, options = {}) => {

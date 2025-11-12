@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import { Button, Card, Form, InputGroup } from 'react-bootstrap';
-import { chatWithAI, isAPIAvailable } from '../../services/aiService';
+import { Button, Card, Form, InputGroup, Alert } from 'react-bootstrap';
+import { chatWithIntakeSpecialist, isAPIAvailable } from '../../services/aiService';
 import { getDemoChatResponse } from '../../services/demoService';
+import { extractIntakeData, hasEnoughIntakeData, saveIntakeData, generateCalendarLink } from '../../services/intakeService';
 import { trackAIUsage } from '../../utils/AIUtils';
 import './AIChatWidget.css';
 
@@ -10,11 +11,14 @@ export default function AIChatWidget({ onExpand }) {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: 'Hello! 👋 I\'m your AI assistant. I can help you learn about our services, get project estimates, or answer questions. What would you like to know?'
+      content: 'Hello! 👋 I\'m your AI intake specialist. I\'m here to learn about your business needs and see how we can help. What brings you here today?'
     }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [intakeData, setIntakeData] = useState({});
+  const [showScheduleOption, setShowScheduleOption] = useState(false);
+  const [intakeSaved, setIntakeSaved] = useState(false);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -42,21 +46,31 @@ export default function AIChatWidget({ onExpand }) {
       let response;
       const useRealAI = isAPIAvailable();
 
+      // Extract intake data from conversation
+      const extractedData = extractIntakeData(newMessages);
+      setIntakeData(extractedData);
+
       if (useRealAI) {
         trackAIUsage('chat', 'api_call', { message: userMessage });
-        response = await chatWithAI([
-          {
-            role: 'system',
-            content: 'You are a helpful AI assistant for a technology consultancy that helps small to midsize businesses with AI automation, custom development, system integration, and technical consulting. Be friendly, professional, and helpful. Keep responses concise but informative.'
-          },
-          ...newMessages.map(m => ({ role: m.role, content: m.content }))
-        ]);
+        response = await chatWithIntakeSpecialist(newMessages, extractedData);
       } else {
         trackAIUsage('chat', 'demo_mode', { message: userMessage });
         response = await getDemoChatResponse(userMessage);
       }
 
-      setMessages([...newMessages, { role: 'assistant', content: response }]);
+      const updatedMessages = [...newMessages, { role: 'assistant', content: response }];
+      setMessages(updatedMessages);
+
+      // Check if we have enough data and offer to schedule
+      const hasEnough = hasEnoughIntakeData(extractedData);
+      if (hasEnough && !showScheduleOption && !intakeSaved) {
+        setShowScheduleOption(true);
+        // Auto-save intake data
+        const saveResult = await saveIntakeData(extractedData);
+        if (saveResult.success) {
+          setIntakeSaved(true);
+        }
+      }
     } catch (error) {
       console.error('Chat error:', error);
       setMessages([
@@ -70,6 +84,13 @@ export default function AIChatWidget({ onExpand }) {
       setIsLoading(false);
       inputRef.current?.focus();
     }
+  };
+
+  const handleScheduleCall = () => {
+    const calendarLink = generateCalendarLink(intakeData);
+    window.open(calendarLink, '_blank', 'noopener,noreferrer');
+    trackAIUsage('chat', 'schedule_call', intakeData);
+    setShowScheduleOption(false);
   };
 
   if (!isOpen) {
@@ -92,7 +113,7 @@ export default function AIChatWidget({ onExpand }) {
     <Card className="ai-chat-widget">
       <Card.Header className="d-flex justify-content-between align-items-center">
         <div>
-          <strong>AI Assistant</strong>
+          <strong>AI Intake Specialist</strong>
           {!isAPIAvailable() && (
             <span className="badge bg-secondary ms-2" style={{ fontSize: '0.7rem' }}>Demo</span>
           )}
@@ -141,6 +162,26 @@ export default function AIChatWidget({ onExpand }) {
           </div>
         )}
         <div ref={messagesEndRef} />
+        {showScheduleOption && (
+          <Alert variant="success" className="mb-0 mt-3">
+            <div className="small">
+              <strong>Great! I have enough information.</strong> Would you like to schedule a discovery call?
+            </div>
+            <Button
+              size="sm"
+              variant="success"
+              className="mt-2"
+              onClick={handleScheduleCall}
+            >
+              Schedule Discovery Call
+            </Button>
+          </Alert>
+        )}
+        {intakeSaved && !showScheduleOption && (
+          <Alert variant="info" className="mb-0 mt-3 small">
+            Your information has been saved. We'll be in touch soon!
+          </Alert>
+        )}
       </Card.Body>
       <Card.Footer>
         <Form onSubmit={handleSend}>
