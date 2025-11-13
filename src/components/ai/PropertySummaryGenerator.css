@@ -1,0 +1,75 @@
+.property-summary-generator {
+  max-width: 1200px;
+}
+
+.property-summary-result {
+  border: 2px solid #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.property-summary-html {
+  background: #ffffff;
+  padding: 0;
+  border-radius: 4px;
+  margin-top: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  overflow: hidden;
+}
+
+.property-summary-html h1,
+.property-summary-html h2 {
+  color: var(--primary-color);
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+.property-summary-html h1 {
+  font-size: 2rem;
+}
+
+.property-summary-html h2 {
+  font-size: 1.5rem;
+}
+
+.property-summary-html ul,
+.property-summary-html ol {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+.property-summary-html li {
+  margin: 0.5em 0;
+}
+
+.property-summary-html p {
+  margin: 1em 0;
+}
+
+.property-summary-html strong {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* Dark mode support */
+[data-theme="dark"] .property-summary-html {
+  background: var(--bg-white);
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .property-summary-html h1,
+[data-theme="dark"] .property-summary-html h2 {
+  color: var(--primary-color);
+}
+
+/* Property photo gallery styles */
+.property-summary-html img {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.property-summary-html img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+

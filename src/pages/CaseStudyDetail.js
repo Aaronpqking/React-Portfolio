@@ -2,8 +2,6 @@ import { useEffect, useMemo } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { getBySlug, CASE_STUDIES } from '../data/caseStudies';
-import MediaGallery from '../components/MediaGallery';
-import MetricBadge from '../components/MetricBadge';
 
 export default function CaseStudyDetail() {
   const { slug } = useParams();
@@ -59,7 +57,7 @@ export default function CaseStudyDetail() {
     return null; // Will redirect in useEffect
   }
 
-  const seoDescription = s?.seo?.description || s.problem || s.title;
+  const seoDescription = s?.seo?.description || s.problem || s.challenge || s.title;
   const pageTitle = `${s.title} — Case Study`;
 
   return (
@@ -118,38 +116,58 @@ export default function CaseStudyDetail() {
           )}
         </header>
 
-        <section className="mb-4">
-          <h2 className="h6">Problem</h2>
-          <p>{s.problem}</p>
-        </section>
+        {(s.problem || s.challenge) && (
+          <section className="mb-4">
+            <h2 className="h6">{s.challenge ? 'Challenge' : 'Problem'}</h2>
+            <p>{s.challenge || s.problem}</p>
+          </section>
+        )}
 
-        <section className="mb-4">
-          <h2 className="h6">Approach</h2>
-          <ul>
-            {s.approach.map((a, i) => (
-              <li key={i}>{a}</li>
-            ))}
-          </ul>
-        </section>
+        {s.whyNow && (
+          <section className="mb-4">
+            <h2 className="h6">Why Now</h2>
+            {Array.isArray(s.whyNow) ? (
+              <ul>
+                {s.whyNow.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>{s.whyNow}</p>
+            )}
+            {s.whyNowSummary && <p className="mt-3">{s.whyNowSummary}</p>}
+          </section>
+        )}
+
+        {s.approach && s.approach.length > 0 && (
+          <section className="mb-4">
+            <h2 className="h6">Approach</h2>
+            <ul>
+              {s.approach.map((a, i) => (
+                <li key={i}>{a}</li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <section className="mb-4">
           <h2 className="h6">Solution</h2>
           <p>{s.solution}</p>
         </section>
 
-        <section className="mb-4">
-          <h2 className="h6">Outcomes</h2>
-          <div className="d-flex gap-2 flex-wrap">
-            {s.outcomes.map(m => (
-              <MetricBadge
-                key={m.label}
-                label={m.label}
-                value={m.value}
-                tooltip={m.tooltip}
-              />
-            ))}
-          </div>
-        </section>
+        {s.outcomes && s.outcomes.length > 0 && (
+          <section className="mb-4">
+            <h2 className="h6">Outcomes</h2>
+            <ul>
+              {s.outcomes.map((m, i) => (
+                <li key={i}>
+                  <strong>{m.label}:</strong> {m.value}
+                  {m.tooltip && <span className="text-muted ms-2">({m.tooltip})</span>}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         {s.highlights && s.highlights.length > 0 && (
           <section className="mb-4">
@@ -159,6 +177,73 @@ export default function CaseStudyDetail() {
                 <li key={i}>{h}</li>
               ))}
             </ul>
+          </section>
+        )}
+
+        {s.phases && s.phases.length > 0 && (
+          <section className="mb-4">
+            <h2 className="h6">3-Phase Evolution Roadmap</h2>
+            {s.phases.map((phase, i) => (
+              <div key={i} className="mb-4 p-3 border rounded">
+                <h3 className="h6 mb-2">{phase.name}</h3>
+                <p className="small text-muted mb-2"><strong>Purpose:</strong> {phase.purpose}</p>
+                {phase.delivered && phase.delivered.length > 0 && (
+                  <div className="mb-2">
+                    <strong className="small">What it delivers:</strong>
+                    <ul className="small mb-2">
+                      {phase.delivered.map((item, j) => (
+                        <li key={j}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {phase.value && (
+                  <p className="small mb-0"><strong>Business Value:</strong> {phase.value}</p>
+                )}
+              </div>
+            ))}
+          </section>
+        )}
+
+        {s.demoStory && (
+          <section className="mb-4">
+            <h2 className="h6">Demo Story</h2>
+            <p>{s.demoStory}</p>
+          </section>
+        )}
+
+        {s.roiImpact && (
+          <section className="mb-4">
+            <h2 className="h6">ROI Impact</h2>
+            <ul>
+              {s.roiImpact.receivingTime && <li>{s.roiImpact.receivingTime}</li>}
+              {s.roiImpact.operationalIncidents && <li>{s.roiImpact.operationalIncidents}</li>}
+              {s.roiImpact.annualROI && <li>{s.roiImpact.annualROI}</li>}
+              {s.roiImpact.fteReduction && <li>{s.roiImpact.fteReduction}</li>}
+              {s.roiImpact.onboarding && <li>{s.roiImpact.onboarding}</li>}
+            </ul>
+          </section>
+        )}
+
+        {s.outcome && (
+          <section className="mb-4">
+            <h2 className="h6">Outcome</h2>
+            <p>{s.outcome}</p>
+          </section>
+        )}
+
+        {s.enablement && (
+          <section className="mb-4">
+            <h2 className="h6">{s.enablement.title}</h2>
+            <p>{s.enablement.summary}</p>
+            {s.enablement.benefits && s.enablement.benefits.length > 0 && (
+              <ul>
+                {s.enablement.benefits.map((benefit, i) => (
+                  <li key={i}>{benefit}</li>
+                ))}
+              </ul>
+            )}
+            {s.enablement.conclusion && <p className="mt-3">{s.enablement.conclusion}</p>}
           </section>
         )}
 
@@ -173,7 +258,6 @@ export default function CaseStudyDetail() {
           </div>
         </section>
 
-        <MediaGallery items={s.media} />
 
         {s.testimonial && (
           <section className="mb-4">

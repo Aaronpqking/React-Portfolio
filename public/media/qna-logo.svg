@@ -1,0 +1,18 @@
+<svg width="320" height="70" viewBox="0 0 320 70" xmlns="http://www.w3.org/2000/svg">
+  <!-- Stylized Q/Magnifying Glass Icon -->
+  <g>
+    <!-- Outer circle (magnifying glass lens / Q loop) -->
+    <circle cx="32" cy="32" r="26" fill="none" stroke="#2563eb" stroke-width="4.5" stroke-linecap="round"/>
+    <!-- Inner concentric circle (lens center) -->
+    <circle cx="32" cy="32" r="11" fill="none" stroke="#2563eb" stroke-width="2.5"/>
+    <!-- Handle/tail of Q (magnifying glass handle) - curves down and right -->
+    <path d="M 52 52 Q 60 48, 68 55" fill="none" stroke="#2563eb" stroke-width="4.5" stroke-linecap="round"/>
+  </g>
+  
+  <!-- QNA Text -->
+  <text x="88" y="40" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', sans-serif" font-size="32" font-weight="700" fill="#2563eb">QNA</text>
+  
+  <!-- TECH SOLUTIONS Text -->
+  <text x="88" y="58" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', sans-serif" font-size="12" font-weight="600" fill="#2563eb" letter-spacing="0.5">TECH SOLUTIONS</text>
+</svg>
+

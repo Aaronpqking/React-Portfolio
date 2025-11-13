@@ -17,6 +17,11 @@
   overflow-y: auto;
   padding: 24px;
   background: #f8f9fa;
+  transition: background-color 0.3s ease;
+}
+
+[data-theme="dark"] .chat-messages-container {
+  background: var(--bg-light);
 }
 
 .message-full {
@@ -52,6 +57,11 @@
   flex-shrink: 0;
   background: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+[data-theme="dark"] .message-avatar {
+  background: var(--bg-white);
 }
 
 .message-content-full {
@@ -77,6 +87,13 @@
   color: #333;
   border: 1px solid #e2e8f0;
   border-bottom-left-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="dark"] .message-assistant .message-text {
+  background: var(--bg-white);
+  color: var(--text-dark);
+  border-color: var(--border-color);
 }
 
 .typing-indicator-full {
@@ -87,6 +104,12 @@
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   width: fit-content;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="dark"] .typing-indicator-full {
+  background: var(--bg-white);
+  border-color: var(--border-color);
 }
 
 .typing-indicator-full span {
@@ -109,6 +132,12 @@
   border-top: 1px solid #e2e8f0;
   padding: 16px;
   background: white;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="dark"] .chat-input-container {
+  background: var(--bg-white);
+  border-color: var(--border-color);
 }
 
 @media (max-width: 768px) {

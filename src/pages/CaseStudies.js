@@ -28,8 +28,9 @@ export default function CaseStudies() {
     return CASE_STUDIES.filter(cs => 
       cs.title.toLowerCase().includes(searchLower) ||
       (cs.client && cs.client.toLowerCase().includes(searchLower)) ||
-      cs.problem.toLowerCase().includes(searchLower) ||
-      cs.solution.toLowerCase().includes(searchLower) ||
+      (cs.problem && cs.problem.toLowerCase().includes(searchLower)) ||
+      (cs.challenge && cs.challenge.toLowerCase().includes(searchLower)) ||
+      (cs.solution && cs.solution.toLowerCase().includes(searchLower)) ||
       (cs.tags && cs.tags.some(t => t.toLowerCase().includes(searchLower)))
     );
   }, [searchQuery]);

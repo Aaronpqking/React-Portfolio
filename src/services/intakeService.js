@@ -220,3 +220,32 @@ export const generateCalendarLink = (intakeData) => {
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${subject}&dates=${formatDate(startDate)}/${formatDate(endDate)}&details=${details}`;
 };
 
+/**
+ * Load latest intake data from localStorage
+ */
+export const loadLatestIntakeData = () => {
+  try {
+    const storedLeads = JSON.parse(localStorage.getItem('ai_intake_leads') || '[]');
+    if (storedLeads.length > 0) {
+      // Return most recent lead (last in array)
+      return storedLeads[storedLeads.length - 1];
+    }
+    return null;
+  } catch (error) {
+    console.error('Error loading intake data:', error);
+    return null;
+  }
+};
+
+/**
+ * Check if intake data exists
+ */
+export const hasIntakeData = () => {
+  try {
+    const storedLeads = JSON.parse(localStorage.getItem('ai_intake_leads') || '[]');
+    return storedLeads.length > 0;
+  } catch (error) {
+    return false;
+  }
+};
+

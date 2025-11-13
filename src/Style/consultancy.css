@@ -18,12 +18,56 @@
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
+/* Dark Mode Variables */
+[data-theme="dark"],
+[data-theme="dark"] html,
+[data-theme="dark"] body {
+  --primary-color: #3b82f6;
+  --primary-dark: #2563eb;
+  --primary-light: #60a5fa;
+  --secondary-color: #94a3b8;
+  --accent-color: #22d3ee;
+  --text-dark: #f1f5f9;
+  --text-muted: #cbd5e1;
+  --bg-light: #0f172a;
+  --bg-white: #1e293b;
+  --border-color: #334155;
+  --gradient-primary: linear-gradient(135deg, #4c1d95 0%, #581c87 100%);
+  --gradient-blue: linear-gradient(135deg, #1e40af 0%, #0891b2 100%);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
+/* Force dark mode background on html, body, and root */
+[data-theme="dark"] html,
+[data-theme="dark"] body,
+[data-theme="dark"] #root {
+  background-color: var(--bg-light) !important;
+  color: var(--text-dark) !important;
+}
+
+/* Smooth transitions for theme changes */
+body,
+.consultancy-navbar,
+.card,
+.modal-content,
+.form-control,
+.form-select,
+textarea,
+#input,
+.stat-item {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
 /* Typography */
 body {
   color: var(--text-dark);
+  background-color: var(--bg-light);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -48,9 +92,28 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s ease;
 }
 
+[data-theme="dark"] .consultancy-navbar {
+  background: rgba(30, 41, 59, 0.95);
+  backdrop-filter: blur(10px);
+}
+
 .consultancy-navbar .navbar-brand {
   color: var(--text-dark) !important;
   text-decoration: none;
+  padding: 0;
+}
+
+.consultancy-navbar .navbar-brand-logo {
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.consultancy-navbar .logo-img {
+  height: auto;
+  max-height: 50px;
+  width: auto;
+  display: block;
 }
 
 .consultancy-navbar .nav-link {
@@ -103,6 +166,26 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.hero-description {
+  color: rgba(255, 255, 255, 0.95) !important;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.hero-features {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.hero-features .text-white-50 {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.services-subtitle {
+  color: var(--text-dark) !important;
+  opacity: 0.85;
 }
 
 .hero-visual {
@@ -160,9 +243,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .stat-item {
-  background: white;
+  background: var(--bg-white);
   border-radius: 8px;
   box-shadow: var(--shadow-sm);
+  transition: background-color 0.3s ease;
 }
 
 .stat-number {
@@ -216,6 +300,12 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 16px;
   border: none;
   box-shadow: var(--shadow-lg);
+  background-color: var(--bg-white);
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .modal-content {
+  background-color: var(--bg-white);
 }
 
 .modal-header {
@@ -224,6 +314,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .modal-footer {
   border-top: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .modal-header,
+[data-theme="dark"] .modal-footer {
+  border-color: var(--border-color);
 }
 
 /* Responsive */
@@ -263,6 +358,17 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--bg-light) !important;
 }
 
+/* Override Bootstrap's bg-white utility in dark mode */
+[data-theme="dark"] .bg-white {
+  background-color: var(--bg-white) !important;
+}
+
+/* Ensure main container backgrounds use theme colors */
+[data-theme="dark"] .container,
+[data-theme="dark"] .container-fluid {
+  background-color: transparent;
+}
+
 .shadow-sm {
   box-shadow: var(--shadow-sm);
 }
@@ -273,5 +379,76 @@ h1, h2, h3, h4, h5, h6 {
 
 .shadow-lg {
   box-shadow: var(--shadow-lg);
+}
+
+/* Dark Mode Specific Styles */
+[data-theme="dark"] .card {
+  background-color: var(--bg-white);
+  border-color: var(--border-color);
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+  background-color: var(--bg-white);
+  border-color: var(--border-color);
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
+  background-color: var(--bg-white);
+  border-color: var(--primary-color);
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] textarea {
+  background-color: var(--bg-white);
+  border-color: var(--border-color);
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] #input {
+  background-color: var(--bg-white);
+  border-color: var(--border-color);
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] #input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-dark);
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--bg-light);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+[data-theme="dark"] .theme-toggle-btn {
+  border-color: var(--border-color);
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .theme-toggle-btn:hover {
+  background-color: var(--bg-white);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
 }
 

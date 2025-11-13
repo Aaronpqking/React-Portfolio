@@ -1,0 +1,108 @@
+{
+  "slug": "vanguard-activations-ops-platform",
+  "title": "Vanguard Activations — Unified Operations Platform & Logistics Intelligence Agent",
+  "client": "Vanguard Activations",
+  "industry": "Live Events • SMB Operations Modernization",
+  "timeframe": "2025",
+  "role": "CTO / Architect",
+  "challenge": "Vanguard Activations managed production, receiving, shipping, and event logistics through Slack threads, email, and scattered tools. As volume grew, misalignment increased, timelines slipped, and the company operated reactively instead of predictively. No single operational picture existed across production, receiving, shipping, or event timelines. Production approvals were lost in Slack noise, onboarding new hires was difficult due to lack of SOPs, teams spent hours locating basic information, and there was high dependency on tribal knowledge.",
+  "whyNow": [
+    "Rapid growth in event volume",
+    "Increasing operational complexity",
+    "Distributed team coordination challenges",
+    "Need for scalable processes without adding headcount",
+    "Customer expectations for faster turnaround",
+    "Lack of documentation hindering growth"
+  ],
+  "whyNowSummary": "Vanguard Activations reached an inflection point where manual coordination and tribal knowledge were limiting growth. The company needed a modern operational foundation that could scale with increasing volume while maintaining quality and reducing stress on the team.",
+  "solution": "A unified operations platform that centralizes all production, receiving, and shipping activity, publishes the Daily Ops Brief directly to Slack, surfaces risks automatically, updates event timelines in real time, acts as a digital coordinator reducing manual workload, generates SOPs and training automatically, and creates a company app powered by a unified operational database.",
+  "stack": ["React", "Supabase (Postgres)", "Slack", "Pipedrive", "Asana", "Shippo", "APIs", "Vercel"],
+  "outcomes": [
+    { "label": "Receiving Time", "value": "~60%", "tooltip": "Reduction in receiving → processing time" },
+    { "label": "Structured Ops Signals", "value": "<10% → >85%", "tooltip": "Increase in structured operations events captured" },
+    { "label": "Time Saved", "value": "1-3 hrs/day", "tooltip": "Per manager from Daily Ops Brief and automation" },
+    { "label": "Operational Mistakes", "value": "30-40%", "tooltip": "Reduction in errors and miscommunication" },
+    { "label": "FTE Equivalent", "value": "0.7-2", "tooltip": "Coordination & admin work automated" }
+  ],
+  "highlights": [
+    "Daily Ops Brief pushed to Slack with real-time risk alerts",
+    "Logistics Agent for shipment tracking and production task management",
+    "Digital Coordinator automating task updates and workload balancing",
+    "Auto-generated SOPs and training materials",
+    "Company app as unified operational home base"
+  ],
+  "media": [
+    { "type": "image", "src": "/media/vanguard-dashboard.png", "alt": "Vanguard Activations operations dashboard" }
+  ],
+  "links": [],
+  "tags": ["operations", "logistics", "automation", "smb", "rag"],
+  "cardImage": "/media/vanguard-dashboard.png",
+  "testimonial": {
+    "quote": "Vanguard Activations transitioned from fragmented, message-based chaos to a scalable operational system that improves execution, reduces stress, and builds long-term organizational intelligence.",
+    "author": "Leadership Team",
+    "title": "Vanguard Activations"
+  },
+  "seo": {
+    "description": "Unified operations platform with logistics intelligence agent, Daily Ops Brief, and automated coordination for live events company.",
+    "keywords": ["operations platform", "logistics automation", "SMB operations", "event management", "digital coordinator"]
+  },
+  "phases": [
+    {
+      "name": "Phase 1 — Daily Ops Brief",
+      "purpose": "Visibility",
+      "delivered": [
+        "Daily Brief pushed to Slack",
+        "Status of production, receiving, shipping, and event health",
+        "Real-time risk alerts",
+        "Unified event view for leadership"
+      ],
+      "value": "1–2 hours/day saved per manager, 20–30% reduction in operational surprises, establishes a trustworthy operational SSOT"
+    },
+    {
+      "name": "Phase 2 — Logistics Agent",
+      "purpose": "Execution Support",
+      "delivered": [
+        "Shipment tracking (FedEx, Delta Cargo, hand-carried)",
+        "Production task ownership & follow-up",
+        "Event timeline auto-updates",
+        "Warehouse queue visibility",
+        "Alerting for blockers"
+      ],
+      "value": "1–3 hours/day saved company-wide, 30–40% reduction in operational mistakes, faster production & receiving turnaround"
+    },
+    {
+      "name": "Phase 3 — Digital Coordinator + Company App",
+      "purpose": "Automation & Knowledge System",
+      "delivered": [
+        "Automated task updates & workload balancing",
+        "Real-time SOP + training generation based on SSOT",
+        "Centralized company app home base",
+        "Standardized event operations for all teams"
+      ],
+      "value": "0.7–2 FTE equivalent in coordination & admin, faster onboarding (weeks → days), predictable, scalable operations"
+    }
+  ],
+  "demoStory": "A production update or receiving notification hits Slack → The system recognizes it → categorizes it → assigns ownership → updates the dashboard → updates the event timeline → includes it in the Daily Ops Brief → alerts responsible parties automatically → captures it for SOP/training documentation. The team does nothing differently—the system does the work.",
+  "roiImpact": {
+    "receivingTime": "~60% reduction in receiving → processing time",
+    "structuredOpsSignals": "Increase from <10% to >85% structured operations events",
+    "operationalMistakes": "30–40% reduction in errors and miscommunication",
+    "timeSaved": "1–3 hours/day saved per manager",
+    "fteEquivalent": "0.7–2 FTE equivalent in coordination & admin work automated"
+  },
+  "outcome": "Vanguard Activations transitioned from fragmented, message-based chaos to a scalable operational system that improves execution, reduces stress, and builds long-term organizational intelligence. The platform enables predictable operations and faster onboarding while supporting continued growth.",
+  "enablement": {
+    "title": "Why This Matters for SMBs Today",
+    "summary": "This case study demonstrates how SMBs can transform reactive operations into predictive, scalable systems. The companies that thrive will be those that build operational intelligence into their DNA.",
+    "benefits": [
+      "Reduced operational overhead",
+      "Faster time-to-value for new team members",
+      "Better decision-making with real-time visibility",
+      "Scalable foundation for growth",
+      "Reduced stress and improved work-life balance",
+      "Higher enterprise value through systematization"
+    ],
+    "conclusion": "This transformation shows how modern SMBs can compete with larger organizations by building intelligent operational systems that amplify team effectiveness."
+  }
+}
+

@@ -58,7 +58,7 @@ function Home() {
                   Transform Your Business with
                   <span className="text-gradient"> AI-Powered Solutions</span>
                 </h1>
-                <p className="lead mb-4 text-muted">
+                <p className="lead mb-4 hero-description">
                   We help small to midsize businesses leverage cutting-edge technology to automate workflows, 
                   integrate systems, and drive growth. From AI agents to custom platforms, we deliver solutions 
                   that scale.
@@ -82,15 +82,15 @@ function Home() {
                     View Our Work
                   </Button>
                 </div>
-                <div className="d-flex gap-4 text-muted small">
+                <div className="d-flex gap-4 hero-features small">
                   <div>
-                    <strong className="text-white">24hr</strong> Response Time
+                    <strong className="text-white">24hr</strong> <span className="text-white-50">Response Time</span>
                   </div>
                   <div>
-                    <strong className="text-white">Free</strong> Consultation
+                    <strong className="text-white">Free</strong> <span className="text-white-50">Consultation</span>
                   </div>
                   <div>
-                    <strong className="text-white">SMB</strong> Focused
+                    <strong className="text-white">Small Business</strong> <span className="text-white-50">Focused</span>
                   </div>
                 </div>
               </div>
@@ -110,7 +110,7 @@ function Home() {
           <Row className="mb-5">
             <Col lg={8} className="mx-auto text-center">
               <h2 className="display-5 fw-bold mb-3">What We Offer</h2>
-              <p className="lead text-muted">
+              <p className="lead services-subtitle">
                 Comprehensive technology solutions tailored to your business needs
               </p>
             </Col>
@@ -260,16 +260,17 @@ function Home() {
               <Card className="h-100 border-0 shadow-sm ai-demo-card">
                 <Card.Body className="p-4 text-center">
                   <div className="ai-icon mb-3">🚀</div>
-                  <Card.Title className="h5 mb-3">More AI Tools</Card.Title>
+                  <Card.Title className="h5 mb-3">All AI Tools</Card.Title>
                   <Card.Text className="text-muted small mb-3">
-                    Tech stack recommendations, workflow analysis, and more AI-powered tools coming soon.
+                    Workflow analyzer, SOP generator, marketing drip tool, proposal generator, and more.
                   </Card.Text>
                   <Button 
-                    variant="outline-primary" 
+                    as={Link}
+                    to="/ai-demos"
+                    variant="primary" 
                     className="w-100"
-                    disabled
                   >
-                    Coming Soon
+                    View All Tools
                   </Button>
                 </Card.Body>
               </Card>

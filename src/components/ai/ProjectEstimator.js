@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Container, Card, Form, Button, Alert, Spinner, Row, Col } from 'react-bootstrap';
-import { getStructuredAIResponse, isAPIAvailable } from '../../services/aiService';
+import { Container, Card, Form, Button, Alert, Spinner, Row, Col, Accordion } from 'react-bootstrap';
+import { getExpertProjectEstimate, isAPIAvailable } from '../../services/aiService';
 import { getDemoProjectEstimate } from '../../services/demoService';
 import { trackAIUsage } from '../../utils/AIUtils';
 import LeadCaptureModal from '../LeadCaptureModal';
@@ -68,29 +68,7 @@ export default function ProjectEstimator() {
       });
 
       if (useRealAI) {
-        const prompt = `Estimate a ${formData.projectType} project with the following details:
-- Features: ${formData.features.join(', ') || 'Standard features'}
-- Additional requirements: ${formData.customFeatures || 'None'}
-- Budget range: ${formData.budget}
-- Timeline preference: ${formData.timeline}
-- Description: ${formData.description || 'Not provided'}
-
-Provide a detailed estimate including:
-1. Estimated cost range (min, max, currency)
-2. Estimated timeline in weeks
-3. Recommended approach/phased plan
-4. Next steps
-5. Confidence level`;
-
-        const schema = {
-          estimatedCost: { min: 'number', max: 'number', currency: 'string' },
-          estimatedTimeline: { weeks: 'number', range: 'string' },
-          recommendedApproach: 'string',
-          nextSteps: 'array',
-          confidence: 'string'
-        };
-
-        const response = await getStructuredAIResponse(prompt, schema);
+        const response = await getExpertProjectEstimate(formData);
         setEstimate(response);
       } else {
         const response = await getDemoProjectEstimate(formData);
@@ -144,14 +122,17 @@ Provide a detailed estimate including:
   return (
     <Container className="project-estimator py-5">
       <div className="text-center mb-5">
-        <h1 className="display-5 fw-bold mb-3">AI Project Estimator</h1>
+        <h1 className="display-5 fw-bold mb-3">Expert Project Advisor</h1>
         <p className="lead text-muted">
-          Get an instant estimate for your project. Tell us about your needs and we'll provide
-          a detailed cost and timeline estimate.
+          Get expert guidance from our multi-perspective advisor (CEO, CTO, Investor, Teacher). 
+          We'll help you define realistic solutions that work within your budget and capabilities.
+        </p>
+        <p className="text-muted small">
+          Heavy on enablement - we'll teach you what's possible, what's realistic, and help you make informed decisions.
         </p>
         {!isAPIAvailable() && (
           <Alert variant="info" className="d-inline-block">
-            <small>Running in demo mode. For real estimates, configure API keys.</small>
+            <small>Running in demo mode. For expert analysis, configure API keys.</small>
           </Alert>
         )}
       </div>
@@ -285,48 +266,113 @@ Provide a detailed estimate including:
             <Card className="estimate-result">
               <Card.Body className="p-4">
                 <div className="text-center mb-4">
-                  <h2 className="h4 mb-3">Your Project Estimate</h2>
+                  <h2 className="h4 mb-2">Expert Analysis & Estimate</h2>
+                  <p className="text-muted small mb-0">Multi-perspective guidance from CEO, CTO, Investor, and Enablement experts</p>
                 </div>
 
                 <div className="estimate-details">
-                  <div className="estimate-item mb-4">
-                    <h5 className="text-muted small text-uppercase mb-2">Estimated Cost</h5>
-                    <div className="display-6 fw-bold text-primary">
-                      ${estimate.estimatedCost?.min?.toLocaleString()} - ${estimate.estimatedCost?.max?.toLocaleString()}
-                    </div>
-                    <small className="text-muted">{estimate.estimatedCost?.currency || 'USD'}</small>
-                  </div>
+                  <Row className="mb-4">
+                    <Col md={6}>
+                      <div className="estimate-item">
+                        <h5 className="text-muted small text-uppercase mb-2">Estimated Cost</h5>
+                        <div className="display-6 fw-bold text-primary">
+                          ${estimate.estimatedCost?.min?.toLocaleString()} - ${estimate.estimatedCost?.max?.toLocaleString()}
+                        </div>
+                        <small className="text-muted">{estimate.estimatedCost?.currency || 'USD'}</small>
+                      </div>
+                    </Col>
+                    <Col md={6}>
+                      <div className="estimate-item">
+                        <h5 className="text-muted small text-uppercase mb-2">Estimated Timeline</h5>
+                        <div className="h3 fw-bold">
+                          {estimate.estimatedTimeline?.weeks} weeks
+                        </div>
+                        <small className="text-muted">{estimate.estimatedTimeline?.range}</small>
+                      </div>
+                    </Col>
+                  </Row>
 
-                  <div className="estimate-item mb-4">
-                    <h5 className="text-muted small text-uppercase mb-2">Estimated Timeline</h5>
-                    <div className="h3 fw-bold">
-                      {estimate.estimatedTimeline?.weeks} weeks
+                  {estimate.recommendedStack && estimate.recommendedStack.length > 0 && (
+                    <div className="estimate-item mb-4">
+                      <h5 className="text-primary mb-3">
+                        <span className="me-2">💻</span>Recommended Tech Stack
+                      </h5>
+                      <p className="text-muted small mb-2">Budget and capability-appropriate technologies:</p>
+                      <div className="d-flex flex-wrap gap-2">
+                        {estimate.recommendedStack.map((tech, idx) => (
+                          <span key={idx} className="badge bg-primary">{tech}</span>
+                        ))}
+                      </div>
                     </div>
-                    <small className="text-muted">{estimate.estimatedTimeline?.range}</small>
-                  </div>
+                  )}
 
                   {estimate.recommendedApproach && (
                     <div className="estimate-item mb-4">
-                      <h5 className="text-muted small text-uppercase mb-2">Recommended Approach</h5>
-                      <p>{estimate.recommendedApproach}</p>
+                      <h5 className="text-primary mb-3">
+                        <span className="me-2">📋</span>Recommended Approach
+                      </h5>
+                      <p className="mb-0">{estimate.recommendedApproach}</p>
                     </div>
+                  )}
+
+                  {estimate.alternatives && estimate.alternatives.length > 0 && (
+                    <Alert variant="info" className="mb-4">
+                      <h6 className="mb-2">
+                        <strong>💡 Alternative Solutions to Consider</strong>
+                      </h6>
+                      <ul className="mb-0">
+                        {estimate.alternatives.map((alt, idx) => (
+                          <li key={idx}>{alt}</li>
+                        ))}
+                      </ul>
+                    </Alert>
+                  )}
+
+                  {estimate.keyLearnings && estimate.keyLearnings.length > 0 && (
+                    <Alert variant="success" className="mb-4">
+                      <h6 className="mb-2">
+                        <strong>🎓 Key Learnings (Enablement)</strong>
+                      </h6>
+                      <p className="small mb-2">What you need to know to make informed decisions:</p>
+                      <ul className="mb-0">
+                        {estimate.keyLearnings.map((learning, idx) => (
+                          <li key={idx}>{learning}</li>
+                        ))}
+                      </ul>
+                    </Alert>
+                  )}
+
+                  {estimate.realisticExpectations && (
+                    <Alert variant="warning" className="mb-4">
+                      <h6 className="mb-2">
+                        <strong>⚖️ Realistic Expectations</strong>
+                      </h6>
+                      <p className="mb-0">{estimate.realisticExpectations}</p>
+                    </Alert>
+                  )}
+
+                  {estimate.fullAnalysis && (
+                    <Accordion className="mb-4">
+                      <Accordion.Item eventKey="0">
+                        <Accordion.Header>View Full Expert Analysis</Accordion.Header>
+                        <Accordion.Body>
+                          <pre className="expert-analysis-text">{estimate.fullAnalysis}</pre>
+                        </Accordion.Body>
+                      </Accordion.Item>
+                    </Accordion>
                   )}
 
                   {estimate.nextSteps && estimate.nextSteps.length > 0 && (
                     <div className="estimate-item mb-4">
-                      <h5 className="text-muted small text-uppercase mb-2">Next Steps</h5>
+                      <h5 className="text-primary mb-3">
+                        <span className="me-2">➡️</span>Next Steps
+                      </h5>
                       <ul>
                         {estimate.nextSteps.map((step, idx) => (
-                          <li key={idx}>{step}</li>
+                          <li key={idx} className="mb-2">{step}</li>
                         ))}
                       </ul>
                     </div>
-                  )}
-
-                  {estimate.confidence && (
-                    <Alert variant="info" className="mb-3">
-                      <strong>Confidence Level:</strong> {estimate.confidence}
-                    </Alert>
                   )}
                 </div>
 

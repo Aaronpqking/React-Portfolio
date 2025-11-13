@@ -14,8 +14,12 @@
 import de from './digital-events.json';
 import grant from './grant-ai.json';
 import eleanor from './eleanor-ai.json';
+import vanguard from './vanguard-activations.json';
+import realEstate from './real-estate-starter-pack.json';
+import medicalDental from './medical-dental-starter-pack.json';
+import insuranceSolopreneur from './insurance-solopreneur-tools.json';
 
-export const CASE_STUDIES = [de, grant, eleanor]; // /** @type {CaseStudy[]} */
+export const CASE_STUDIES = [vanguard, de, grant, eleanor, realEstate, medicalDental, insuranceSolopreneur]; // /** @type {CaseStudy[]} */
 
 export const getBySlug = (slug) => CASE_STUDIES.find(s => s.slug === slug);
 

@@ -5,6 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 import LeadCaptureModal from './LeadCaptureModal';
+import ThemeToggle from './ThemeToggle';
 
 function Header() {
   const [showModal, setShowModal] = useState(false);
@@ -18,19 +19,23 @@ function Header() {
       />
       <Navbar expand="lg" className="consultancy-navbar" fixed="top">
         <Container>
-          <Navbar.Brand as={Link} to="/" className="fw-bold fs-4">
-            Aaron King
-            <span className="text-primary"> Consulting</span>
+          <Navbar.Brand as={Link} to="/" className="navbar-brand-logo">
+            <img 
+              src="/media/qna-logo.svg" 
+              alt="QNA tech solutions" 
+              className="logo-img"
+            />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/">Home</Nav.Link>
               <Nav.Link as={Link} to="/case-studies">Case Studies</Nav.Link>
-              <Nav.Link as={Link} to="/ai-chat">AI Tools</Nav.Link>
+              <Nav.Link as={Link} to="/ai-demos">AI Tools</Nav.Link>
               <Nav.Link as={Link} to="/Resume">About</Nav.Link>
             </Nav>
-            <div className="d-flex gap-2">
+            <div className="d-flex gap-2 align-items-center">
+              <ThemeToggle />
               <Button 
                 variant="outline-primary" 
                 size="sm"

@@ -1,0 +1,123 @@
+{
+  "slug": "medical-dental-starter-pack",
+  "title": "Medical/Dental Office Starter Pack",
+  "client": "Private Dental Practices, Med Spas, Chiropractors, Aesthetic Clinics",
+  "industry": "Healthcare • Medical Practice Management • SMB Automation",
+  "timeframe": "2025",
+  "role": "Architect / Engineer",
+  "challenge": "Medical and dental practices struggle with manual patient intake, missed appointments, and fragmented workflows that create administrative burden and reduce patient satisfaction. Private dental practices, med spas, chiropractors, and aesthetic clinics waste hours on repetitive tasks: manually processing intake forms, tracking consent documents, coordinating appointments, managing missed visits, and following up on recurring care. Without automation, practices lose revenue from no-shows, face compliance risks from incomplete documentation, and spend valuable time on administrative work instead of patient care.",
+  "whyNow": [
+    "Increasing patient expectations for seamless digital experiences",
+    "Need to reduce no-shows and missed appointments",
+    "Growing complexity in compliance and documentation requirements",
+    "Time wasted on manual intake and consent workflows",
+    "Missed revenue opportunities from incomplete follow-ups",
+    "Lack of automated systems for recurring care management"
+  ],
+  "whyNowSummary": "Medical and dental practices are losing revenue and patient satisfaction due to manual processes, missed appointments, and incomplete follow-ups. The healthcare industry demands efficient patient management, automated compliance workflows, and systems that ensure no patient falls through the cracks while freeing staff to focus on care delivery.",
+  "solution": "A comprehensive medical/dental office automation starter pack that automates patient intake, consent workflows, appointment scheduling, missed visit recovery, and recurring care management. The system integrates intake forms with DocuSign for consent management, syncs with practice calendars for seamless scheduling, sends automated reminders, detects no-shows and offers rescheduling, tracks recurring visits, and triggers review/referral campaigns. Phase 2 adds AI-powered review and referral automation to drive patient acquisition.",
+  "stack": ["React", "Typeform/Google Forms", "DocuSign API", "Google Calendar API", "Google Drive API", "Twilio (SMS)", "Airtable/Google Sheets", "Supabase (Postgres)", "Vercel"],
+  "outcomes": [
+    { "label": "No-Show Rate", "value": "40-50%", "tooltip": "Reduction in missed appointments" },
+    { "label": "Intake Processing", "value": "70%", "tooltip": "Faster patient intake and consent completion" },
+    { "label": "Time Saved", "value": "8-12 hrs/week", "tooltip": "Per staff member on administrative tasks" },
+    { "label": "Recurring Visit Rate", "value": "30-40%", "tooltip": "Improvement in patient retention for recurring care" },
+    { "label": "Review Generation", "value": "3-5×", "tooltip": "Increase in online reviews with automated requests" }
+  ],
+  "highlights": [
+    "Automated patient intake → PDF → DocuSign workflow",
+    "Organized patient folders with audit trail",
+    "Seamless appointment scheduling with calendar sync",
+    "Automated SMS/email reminders and no-show recovery",
+    "Recurring care tracking and automated visit reminders",
+    "AI-powered review and referral bot (Phase 2)"
+  ],
+  "media": [],
+  "links": [],
+  "tags": ["healthcare", "medical", "dental", "automation", "patient-management", "appointment-scheduling", "smb"],
+  "cardImage": "/media/medical-dental-starter.png",
+  "phases": [
+    {
+      "name": "Phase 1 — New Patient Intake & Consent Workflow",
+      "purpose": "Streamline Patient Onboarding and Compliance",
+      "delivered": [
+        "Typeform/Google Form intake → auto-PDF → DocuSign",
+        "Folders created per patient (Drive/Dropbox) with audit trail",
+        "Optional: Flag incomplete consents for front desk follow-up",
+        "Automated consent tracking and compliance monitoring",
+        "Secure document storage with patient privacy compliance"
+      ],
+      "value": "70% faster intake processing, complete audit trail, reduced compliance risk, organized patient documentation, time saved on manual data entry"
+    },
+    {
+      "name": "Phase 2 — Appointment Scheduling + Missed Visit Recovery",
+      "purpose": "Reduce No-Shows and Optimize Scheduling",
+      "delivered": [
+        "Online form → syncs with Office calendar (Google/Outlook)",
+        "Sends SMS/email reminders automatically",
+        "If missed: follow-up text with \"reschedule now\" CTA",
+        "Two-way calendar sync for real-time availability",
+        "Automated confirmation and reminder sequences"
+      ],
+      "value": "40-50% reduction in no-show rate, improved patient satisfaction, automated recovery of missed appointments, seamless scheduling experience"
+    },
+    {
+      "name": "Phase 3 — Recurring Care & Membership Nudges",
+      "purpose": "Increase Patient Retention and Revenue",
+      "delivered": [
+        "Tracks recurring visits (e.g. dental cleanings, Botox)",
+        "Sends automated \"Time for your next visit!\" reminders",
+        "Syncs with CRM to offer special discounts/packages",
+        "Personalized care reminders based on patient history",
+        "Automated membership renewal and package offers"
+      ],
+      "value": "30-40% improvement in recurring visit rate, increased patient retention, automated revenue recovery, personalized patient engagement"
+    },
+    {
+      "name": "Phase 4 — Review & Referral Bot (Bonus)",
+      "purpose": "Drive Patient Acquisition Through Reviews and Referrals",
+      "delivered": [
+        "After 3rd visit, triggers Google/Yelp review request",
+        "Personalized referral code generation",
+        "Tracks referrals via unique links (Airtable or Sheet)",
+        "Automated follow-up for review completion",
+        "Referral reward tracking and fulfillment"
+      ],
+      "value": "3-5× increase in online reviews, automated referral tracking, improved online reputation, new patient acquisition through referrals"
+    }
+  ],
+  "demoStory": "New patient completes intake form → System creates PDF → Routes to DocuSign for consent → Patient signs → Completed documents auto-saved to patient folder → Front desk notified → Appointment scheduled via online form → System syncs to practice calendar → Automated reminders sent → If patient misses appointment, system detects no-show → Automatic reschedule offer sent via SMS → Patient reschedules → After 3rd visit, system triggers review request → Patient leaves review → Referral code generated → Patient shares code → New patient arrives → Referral tracked automatically → Practice grows through automated patient acquisition.",
+  "roiImpact": {
+    "noShowRate": "40-50% reduction in missed appointments",
+    "intakeProcessing": "70% faster patient intake and consent completion",
+    "timeSaved": "8-12 hours per week saved per staff member on administrative tasks",
+    "recurringVisitRate": "30-40% improvement in patient retention for recurring care",
+    "reviewGeneration": "3-5× increase in online reviews with automated requests",
+    "revenueRecovery": "Estimated $15k-$30k annual revenue recovery from reduced no-shows and improved retention"
+  },
+  "outcome": "Medical and dental practices transform from manual, reactive workflows to automated, proactive systems that streamline patient intake, reduce no-shows, increase retention, and drive growth through reviews and referrals. The starter pack eliminates administrative burden, ensures compliance, and enables staff to focus on what they do best: delivering exceptional patient care.",
+  "enablement": {
+    "title": "Why This Matters for Medical and Dental Practices Today",
+    "summary": "Healthcare practices face increasing pressure to deliver exceptional patient experiences while managing complex compliance requirements and maximizing revenue. This starter pack demonstrates how private practices can compete with larger healthcare systems by automating patient management workflows that ensure no patient falls through the cracks.",
+    "benefits": [
+      "Reduce no-shows by 40-50% with automated reminders",
+      "Streamline patient intake and consent workflows",
+      "Save 8-12 hours per week on administrative tasks",
+      "Increase recurring visit rates by 30-40%",
+      "Generate 3-5× more online reviews automatically",
+      "Drive patient acquisition through referral automation"
+    ],
+    "conclusion": "This automation starter pack empowers medical and dental practices to deliver better patient experiences, improve compliance, and grow revenue through intelligent automation that works around the clock."
+  },
+  "testimonial": {
+    "quote": "This starter pack has transformed our practice. We've cut no-shows in half, streamlined our intake process, and our online reviews have tripled. The automated reminders and follow-ups ensure we never lose touch with patients, and the referral system is driving new business. It's like having a full-time patient coordinator.",
+    "author": "Private Dental Practice Owner",
+    "title": "Early Adopter"
+  },
+  "seo": {
+    "description": "Medical and dental office automation starter pack: automated patient intake, consent workflows, appointment scheduling, no-show recovery, recurring care management, and review/referral automation.",
+    "keywords": ["medical practice automation", "dental office automation", "patient management", "appointment scheduling", "healthcare automation", "medical practice software", "dental practice management"]
+  }
+}
+
+

@@ -37,11 +37,10 @@ export default function CaseStudyCard({ s }) {
     <article className="card h-100">
       {useIframe ? (
         <div 
-          className="card-img-top position-relative"
+          className="card-img-top position-relative bg-light"
           style={{ 
             height: '200px', 
             overflow: 'hidden',
-            backgroundColor: '#f8f9fa',
             cursor: 'pointer'
           }}
           onClick={handlePreviewClick}
